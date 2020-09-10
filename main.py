@@ -3,7 +3,9 @@ import pandas as pd
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 from sklearn import svm
+from sklearn.metrics import plot_confusion_matrix
 import data as df
+import matplotlib.pyplot as plt
 
 def get_Normalize(dataframe):
     x = dataframe.values  # returns a numpy array
@@ -24,7 +26,7 @@ def processing_data(file):
 if __name__ == "__main__":
 
     # Read data from csv file
-    data_path = 'C:/Users/lenovo/Desktop/JHON_2030/IA/TALLER_1/dataset/'
+    data_path = 'C:/Users/di-di/PycharmProjects/Taller1_IA/dataset/'
 
     train_data_filename = 'training.csv'
     train_data_file = os.path.join(data_path, train_data_filename)
@@ -38,8 +40,12 @@ if __name__ == "__main__":
     features_difference = list(set(characteristics_train) - set(characteristics_test))
     X_train = X_train.drop(characteristics_train.index(features_difference[0]), axis=1)
 
-    classifier = svm.SVC(kernel='linear', gamma='auto', C=2)
+    classifier = svm.SVC(kernel='linear', gamma='auto')
     classifier.fit(X_train, Y_train)
     Y_predict = classifier.predict(X_test)
 
-    print(Y_predict)
+    dis = plot_confusion_matrix(classifier, X_test, Y_test, cmap=plt.cm.Blues)
+    plt.show()
+
+    #print(Y_predict)
+    #print(confusion_matrix(Y_test,Y_predict))
