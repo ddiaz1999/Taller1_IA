@@ -29,22 +29,21 @@ if __name__ == "__main__":
     '''
 
     # Characteristics
-    characteristics = train_data.columns
-    print(characteristics)
+    characteristics = train_data.columns[:-1]
 
-    # Cualitative data binary codification
+    # Cualitative data integer codification
     #train_data['Sex'].str.strip().replace(['Female', 'Male'], [0, 1], inplace=True)
     #train_data['Race'].str.strip().replace(['White', 'Black', 'Asian-Pac-Islander', 'Amer-Indian-Eskimo', 'Other'], [0, 1, 2, 3, 4], inplace=True)
     #train_data['Workclass'].str.strip().replace(['Private', 'Self-emp-not-inc', 'Local-gov', 'State-gov', 'Self-emp-inc', 'Federal-gov', 'Without-pay'], [0, 1, 2, 3, 4, 5, 6], inplace=True)
 
-    print(train_data['Education'].value_counts())
-
+    Integer_coding = {}
     for col_name in train_data.columns:
         if (train_data[col_name].dtype == 'object'):
+            x = train_data[col_name].value_counts().keys().tolist()
+            x.sort()
+            Integer_coding[col_name] = x
             train_data[col_name] = train_data[col_name].astype('category')
             train_data[col_name] = train_data[col_name].cat.codes
 
-    value = [train_data['Education'].value_counts()]
-    #value = value[:, np.newaxis]
-    print('xxx:', value)
-    print(train_data['Education'])
+    X_train, Y_train = train_data.drop(train_data.columns[-1], axis=1), train_data.drop(characteristics, axis=1)
+    print(X_train.shape, Y_train.shape)
