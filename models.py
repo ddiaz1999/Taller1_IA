@@ -105,9 +105,16 @@ class model():
         target_names.reshape((len(target_names),))
         if model == 'SVM':
             dis = plot_confusion_matrix(self.__classifier_SVM, self.__data_test[0], self.__data_test[1], cmap=plt.cm.Blues, display_labels=target_names)
+            dis.ax_.set_title(f'Matriz de confusión para {model}')
             plt.show()
         elif model == 'Fischer':
             dis = plot_confusion_matrix(self.__classifier_Fischer, self.__data_test[0], self.__data_test[1], cmap=plt.cm.Blues, display_labels=target_names)
+            dis.ax_.set_title(f'Matriz de confusión para {model}')
+            plt.show()
+        elif model == 'Perceptron':
+            dis = plot_confusion_matrix(self.__classifier_Perceptron, self.__data_test[0], self.__data_test[1],
+                                        cmap=plt.cm.Blues, display_labels=target_names)
+            dis.ax_.set_title(f'Matriz de confusión para {model}')
             plt.show()
         else:
             print('Error 404 not found: Do not exist this model')

@@ -67,8 +67,8 @@ def processing_data(file):
 
 if __name__ == "__main__":
 
-    data_path = 'C:/Users/lenovo/Desktop/JHON_2030/IA/dataset/'
-    #data_path = 'C:/Users/di-di/PycharmProjects/Taller1_IA/dataset/'
+    #data_path = 'C:/Users/lenovo/Desktop/JHON_2030/IA/dataset/'
+    data_path = 'C:/Users/di-di/PycharmProjects/Taller1_IA/dataset/'
 
     train_data_filename = 'training.csv'
     train_data_file = os.path.join(data_path, train_data_filename)
@@ -84,6 +84,19 @@ if __name__ == "__main__":
 
     my_classifier = models.model(X_train, Y_train, X_test, Y_test)
 
+    ## Metodo de SVM
+    my_classifier.SVM()
+    Y_predict = my_classifier.get_predict_SVM()
+    print('Mean accuracy SVM:', my_classifier.get_score_SVM())
+    my_classifier.confussion_Matrix('SVM')
+
+    ## Metodo de algoritmo de Perceptron
+    my_classifier.Perceptron()
+    Y_predict = my_classifier.get_predict_Perceptron()
+    print('Mean accuracy Perceptron:', my_classifier.get_score_Perceptron())
+    my_classifier.confussion_Matrix('Perceptron')
+
+    ## Metodo de discriminante de Fischer
     my_classifier.Fischer()
     Y_predict = my_classifier.get_predict_Fischer()
     print('Mean accuracy Fischer:', my_classifier.get_score_Fischer())
