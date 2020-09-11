@@ -1,6 +1,44 @@
+''' Ruler 1         2         3         4         5         6         7        '
+/*******************************************************************************
+*                                                                              *
+*                       /$$              /$$                                   *
+*                      | $$             | $$                                   *
+*                  /$$$$$$$   /$$$$$$   /$$$$$$     /$$$$$$                    *
+*                 /$$__  $$  |____  $$ |_  $$_/    |____  $$                   *
+*                | $$  | $$   /$$$$$$$   | $$       /$$$$$$$                   *
+*                | $$  | $$  /$$__  $$   | $$ /$$  /$$__  $$                   *
+*                |  $$$$$$$ |  $$$$$$$   |  $$$$/ |  $$$$$$$                   *
+*                 \_______/  \_______/    \___/    \_______/                   *
+*                                                                              *
+*                  Developed by:                                               *
+*                                                                              *
+*                            Jhon Hader Fernandez                              *
+*                     - jhon_fernandez@javeriana.edu.co                        *
+*                                                                              *
+*                             Diego Fernando Diaz                              *
+*                        - di-diego@javeriana.edu.co                           *
+*                                                                              *
+*                          Oscar Geovanny Baracaldo                            *
+*                       - obaracaldo@javeriana.edu.co                          *
+*                                                                              *
+*                       Pontificia Universidad Javeriana                       *
+*                            Bogota DC - Colombia                              *
+*                                  Sep - 2020                                  *
+*                                                                              *
+*****************************************************************************'''
+
+#------------------------------------------------------------------------------#
+#                          IMPORT MODULES AND LIBRARIES                        #
+#------------------------------------------------------------------------------#
+
 import pandas as pd
 import numpy as np
 import prettytable
+
+
+#------------------------------------------------------------------------------#
+#                                 DATAFRAME CLASS                              #
+#------------------------------------------------------------------------------#
 
 class dataframe():
 
@@ -28,14 +66,15 @@ class dataframe():
         charateristics.remove('income')
         return charateristics
 
-    def delete_miss_data(self):
+    def delete_miss_data(self, verbose=False):
         self.__data = data = self.__data.dropna()
         features = prettytable.PrettyTable(["Description", "Amount"])
-        features.add_row(['Original lenght of data', self.__original_lenght_data])
-        features.add_row(['After remove miss data lenght', data.shape[0]])
-        features.add_row(['Total miss values', self.__original_lenght_data-data.shape[0]])
-        print(' Delete miss data: features')
-        print(features, '\n')
+        if verbose:
+            features.add_row(['Original lenght of data', self.__original_lenght_data])
+            features.add_row(['After remove miss data lenght', data.shape[0]])
+            features.add_row(['Total miss values', self.__original_lenght_data-data.shape[0]])
+            print(' Delete miss data: features')
+            print(features, '\n')
 
     def One_Hot_Encoding(self):
         self.__data['Sex'] = self.__data['Sex'].str.strip().replace(['Female', 'Male'], [0, 1])
@@ -47,7 +86,5 @@ class dataframe():
         self.__data = self.__data.astype('int')
 
     def get_Split_Data(self):
-        X = self.__data.drop('income', axis=1)
-        #Y = self.__data.drop(self.get_characteristics(), axis=1)
-        Y = self.__data['income']
+        X, Y = self.__data.drop('income', axis=1), self.__data['income']
         return X, Y
