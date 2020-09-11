@@ -89,22 +89,26 @@ En el codigo adjunto de Python se ve representada la implementación de los mode
 
 En en desarollo del código, se realizan la precisión media de los dos modelos especificados, obteniendo como resultado:
 
-
 |    Módelo    | Precisión media | 
 |:------------:|:---------------:| 
-|     SVM      |      0.847      |
+|     SVM      |      0.848      |
+|   Fischer    |      0.839      |
 |  Perceptron  |      0.795      |
 
 
-### COMPARACIONES
-Matriz de confusión para el método SVM:
-![SVM](https://user-images.githubusercontent.com/61461128/92958993-c80b1b00-f430-11ea-895b-e779d8ef5d88.PNG)
+### COMPARACIONES 
 
-Matriz de confusión para el método Perceptron:
-![Perceptron](https://user-images.githubusercontent.com/61461128/92958772-7367a000-f430-11ea-8754-32355fe14de0.PNG)
+|    Resultados SVM    | 
+|:--------------------:| 
+|![SVM](https://user-images.githubusercontent.com/61461128/92958993-c80b1b00-f430-11ea-895b-e779d8ef5d88.PNG)|
 
-Matriz de confusión para el método de discriminante de Fischer:
-![Fischer](https://user-images.githubusercontent.com/61461128/92958981-c4779400-f430-11ea-9ee4-e6c17adc6882.PNG)
+|    Resultados Perceptron    | 
+|:---------------------------:| 
+|![Perceptron](https://user-images.githubusercontent.com/61461128/92958772-7367a000-f430-11ea-8754-32355fe14de0.PNG)|
+
+|    Resultados Fischer    | 
+|:------------------------:| 
+|![Fischer](https://user-images.githubusercontent.com/61461128/92958981-c4779400-f430-11ea-9ee4-e6c17adc6882.PNG)|
 
 ### CONCLUSIONES
 

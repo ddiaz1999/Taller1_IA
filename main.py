@@ -54,7 +54,7 @@ def get_Normalize(dataframe):
 
 def processing_data(file):
     data = df.dataframe(file)
-    data.delete_miss_data(verbose=True)
+    data.delete_miss_data(verbose=False)
     data.One_Hot_Encoding()
     features = data.get_characteristics()
     X, Y = data.get_Split_Data()
