@@ -25,3 +25,9 @@ Mientras que,los datos correspondientes al conjunto de prueba estan constituidos
 2. ¿Qué métodos se proponen utilizar y por qué?
 
 
+
+```python
+print('This is a example')
+````
+
+
