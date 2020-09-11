@@ -34,6 +34,7 @@
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import plot_confusion_matrix
 from sklearn import svm
+from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
@@ -54,7 +55,7 @@ def get_Normalize(dataframe):
 
 def processing_data(file):
     data = df.dataframe(file)
-    data.delete_miss_data()
+    data.delete_miss_data(verbose=True)
     data.One_Hot_Encoding()
     features = data.get_characteristics()
     X, Y = data.get_Split_Data()
@@ -67,8 +68,8 @@ def processing_data(file):
 
 if __name__ == "__main__":
 
-    #data_path = 'C:/Users/lenovo/Desktop/JHON_2030/IA/dataset/'
-    data_path = 'C:/Users/di-di/PycharmProjects/Taller1_IA/dataset/'
+    data_path = 'C:/Users/lenovo/Desktop/JHON_2030/IA/dataset/'
+    #data_path = 'C:/Users/di-di/PycharmProjects/Taller1_IA/dataset/'
 
     train_data_filename = 'training.csv'
     train_data_file = os.path.join(data_path, train_data_filename)
@@ -83,21 +84,8 @@ if __name__ == "__main__":
     X_train = X_train.drop(features_train.index(features_difference[0]), axis=1)
 
     my_classifier = models.model(X_train, Y_train, X_test, Y_test)
-    my_classifier.SVM()
-    Y_predict = my_classifier.get_predict_SVM()
-    print('Mean accuracy SVM:', my_classifier.get_score_SVM())
-    #my_classifier.confussion_Matrix('SVM')
-
-    my_classifier.Perceptron()
-    Y_predict = my_classifier.get_predict_Perceptron()
-    print('Mean accuracy Perceptron:', my_classifier.get_score_Perceptron())
 
     my_classifier.Fischer()
     Y_predict = my_classifier.get_predict_Fischer()
     print('Mean accuracy Fischer:', my_classifier.get_score_Fischer())
-    #my_classifier.confussion_Matrix('Fischer')
-
-    my_classifier.LMS()
-    Y_predict = my_classifier.get_predict_LMS()
-    print('Mean accuracy LMS:', my_classifier.get_score_LMS())
-    #my_classifier.confussion_Matrix('LMS')
+    my_classifier.confussion_Matrix('Fischer')

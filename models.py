@@ -76,28 +76,6 @@ class model():
         mean_accuracy = self.__classifier_Perceptron.score(self.__data_train[0], self.__data_train[1])
         return mean_accuracy
 
-    def confussion_Matrix(self, model):
-        target_names = np.array(['<=50k', '>50k'])
-        target_names.reshape((len(target_names),))
-        if model == 'SVM':
-            dis = plot_confusion_matrix(self.__classifier_SVM, self.__data_test[0], self.__data_test[1], cmap=plt.cm.Blues, display_labels=target_names)
-            plt.show()
-        elif model == 'Perceptron':
-            dis = plot_confusion_matrix(self.__classifier_Perceptron, self.__data_test[0], self.__data_test[1],
-                                        cmap=plt.cm.Blues, display_labels=target_names)
-            plt.show()
-        elif model == 'Fischer':
-            dis = plot_confusion_matrix(self.__classifier_Fischer, self.__data_test[0], self.__data_test[1],
-                                        cmap=plt.cm.Blues, display_labels=target_names)
-            plt.show()
-        elif model == 'LMS':
-            dis = plot_confusion_matrix(self.__classifier_LMS, self.__data_test[0], self.__data_test[1],
-                                        cmap=plt.cm.Blues, display_labels=target_names)
-            plt.show()
-        else:
-            print('Error 404 not found: Do not exist this model')
-
-
     def Fischer(self):
         self.__classifier_Fischer = discriminant_analysis.LinearDiscriminantAnalysis()
         self.__classifier_Fischer.fit(self.__data_train[0], self.__data_train[1])
@@ -121,3 +99,15 @@ class model():
     def get_score_LMS(self):
         mean_accuracy = self.__classifier_LMS.score(self.__data_train[0], self.__data_train[1])
         return mean_accuracy
+
+    def confussion_Matrix(self, model):
+        target_names = np.array(['<=50k', '>50k'])
+        target_names.reshape((len(target_names),))
+        if model == 'SVM':
+            dis = plot_confusion_matrix(self.__classifier_SVM, self.__data_test[0], self.__data_test[1], cmap=plt.cm.Blues, display_labels=target_names)
+            plt.show()
+        elif model == 'Fischer':
+            dis = plot_confusion_matrix(self.__classifier_Fischer, self.__data_test[0], self.__data_test[1], cmap=plt.cm.Blues, display_labels=target_names)
+            plt.show()
+        else:
+            print('Error 404 not found: Do not exist this model')

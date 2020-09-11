@@ -1,24 +1,53 @@
-# Taller1_IA
+# Taller 1 -INTELIGENCIA ARTIFICIAL
+### *ADULTS INCOMES*  
 
-En base a los requerimientos del problema, en este caso, predecir si una persona tiene ingresos mayores o menores a $50.000, se plantean las siguientes preguntas con el fin de otorgar solución al mismo.
+En base a los requerimientos del problema, en este caso, predecir si una persona tiene ingresos mayores o menores a $50.000 USD, se plantean las siguientes preguntas con el fin de otorgar solución al mismo.
 
-1. ¿Qué contienen los datos?
+#####1. ¿Qué contienen los datos?
 
-Se analizan el conjunto de datos, en este se evidencian tres archivos principales
+Se analiza el conjunto de datos, en este se evidencian tres archivos principales
 
-- adult.data
+- *adult.data*: Representa el conjunto de datos de entrenamiento.
+- *adult.names*: Describen el conjunto de los datos.
+- *adult.test*: Es el conjunto de datos de prueba.
 
-Representa el conjunto de datos de entrenamiento.
+##### ANALISIS DE DATOS
+Inicialmente se observa la cantidad de datos disponibles, tanto para el entrenamiento como para las pruebas.
 
-- adult.names
+- ***Caracteristicas y tipos de datos***
 
-Describen el conjunto de los datos.
+Para el dataset se tiene tipos de datos cualitatívos (categóricos) y cuantitatívos (numéricos).
 
-- adult.test
+Caracteristica | Categórico | Numérico |
+--- | --- | --- | 
+Age|  | X | 
+Workclass| X |  |
+Fnlwgt|  | X |  
+Education| X |  |
+Education-num| X |  |
+Marital-status| X |  |
+Occupation| X |  |
+Relationship| X |  |
+Race| X |  |
+Sex| X |  |
+Capital-gain|  | X |
+Capital-loss|  | X |
+Hours per week|  | X |
+Native country| X |  |
 
-Es el conjunto de datos de prueba.
+- ***Cantidad de datos y manejo de datos perdidos***
 
-Los datos estan constituidos por 32561 muestras y 14 parametros. Los datos contienen una serie de valores categóricos, numéricos y perdidos. Las columnas correspondientes a ***workClass, occupation*** y ***native-country*** tienen valores perdidos. 
+Descripción | Cantidad | Caracteristicas | Datos perdidos | Porcentaje datos perdidos
+--- | --- | --- | --- | --- |
+Datos de entrenamiento | 32561 | 14 | 2399 | 7.6
+Datos de prueba | 16281 | 14 | 1221 | 7.5
+
+Las caracteristicas: ***workClass, occupation*** y ***native-country*** tienen valores perdidos.
+Para manejar datos perdidos se contemplaron dos opciones: rellenar esos datos con algún valor aleatorio o descartarlos, decidimos descartar los datos perdidos, pues constituyen aproximadamente el 7.6% de la cantidad de datos en total para los dos conjuntos de datos. 
+
+- Cantidad de datos
+
+Los datos estan constituidos por 32561 muestras y 14 caracteristicas. Los datos contienen una series de datos de tipo categóricos y numéricos.  
 
 Mientras que,los datos correspondientes al conjunto de prueba estan constituidos por 16281 muestras y no existe ninguna perdida en los datos.
 
@@ -33,5 +62,8 @@ Como segundo modelo, se tomó el ***Perceptron***, pues este siempre encuentra u
 ```python
 print('This is a example')
 ````
+
+
+
 
 
