@@ -67,6 +67,7 @@ def processing_data(file):
 
 if __name__ == "__main__":
 
+    #Ingrese aquí el path de donde guardó el dataset
     #data_path = 'C:/Users/lenovo/Desktop/JHON_2030/IA/dataset/'
     data_path = 'C:/Users/di-di/PycharmProjects/Taller1_IA/dataset/'
 
