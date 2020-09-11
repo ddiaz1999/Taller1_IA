@@ -1,4 +1,4 @@
-# Taller 1 - INTELIGENCIA ARTIFICIAL
+# TALLER 1 - INTELIGENCIA ARTIFICIAL
 
 Desarrollado por:
 - ***Jhon Hader Fernández***
@@ -8,7 +8,7 @@ Desarrollado por:
 ---
 ---
 
-### *ADULTS INCOMES*  
+### *ADULTS INCOMES DATASET*  
 
 En base a los requerimientos del problema, en este caso, predecir si una persona tiene ingresos mayores o menores a $50.000 USD, se plantean las siguientes preguntas con el fin de otorgar solución al mismo.
 
@@ -26,14 +26,13 @@ Se analiza el conjunto de datos, en este se evidencian tres archivos principales
 
 Para el dataset se tiene tipos de datos cualitatívos (categóricos) y cuantitatívos (numéricos).
 
-
 | Caracteristica | Categórico | Numérico |
 |:--------------:|:----------:|:--------:| 
 |      Age       |            |    X     | 
 |   Workclass    |      X     |          |
 |     Fnlwgt     |            |    X     |  
 |   Education    |      X     |          |
-| Education-num  |      X     |          |
+| Education-num  |            |    X     |
 | Marital-status |      X     |          |
 |  Occupation    |      X     |          |
 |  Relationship  |      X     |          |
@@ -70,6 +69,8 @@ Se puede observar que el conjunto de datos de entrenamiento y de prueba presenta
 
 ## PROCESAMIENTO DE DATOS
 
+- ***Codificación***
+
 Para las caracteristicas de tipo categóricas (exceptuando `'Sex'`) se realizó una codificación ***One Hot*** la cual aumenta la dimensionalidad del problema, pues si una caracteristica tiene 3 opciones, esta caracteristica será reemplazada por 3 nuevas caracteristicas, cada una correspondiente a las opciones que tenía la caracteristica inicial.
 
 |    Datos     |Caracteristicas iniciales|Caracteristicas despues de codificar|
@@ -83,6 +84,11 @@ Lo anterior se debe a que en la caracteristica inicial `'Native country'` el set
 Al observar que en el conjunto de entrenamiento, sólo una persona tenía como `'Native country'` a `'Holand-Netherlands'` se decidió descartar esta caracteristica, pues no sería muy relevante.
 
 Lo anterior se debe a qué los dos conjuntos de datos deben tener la misma cantidad de caracteristicas.  
+
+- ***Normalización***
+
+Para tener una escala estandar en todo el conjunto de datos, realizó una normalización de los datos en un rango de `[0, 1]` utilizando los criterios `min & max`, es decir, para cada caracteristica, se toma el máximo como 1 y el mínimo como 0, y realiza una proporción lineal para todos los datos.
+Es necesario resaltar que varias caracteristicas ya están normalizadas por haberlas códificado `One Hot` 
 
 
 ---
