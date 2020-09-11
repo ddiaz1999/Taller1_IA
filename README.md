@@ -1,4 +1,13 @@
-# Taller 1 -INTELIGENCIA ARTIFICIAL
+# Taller 1 - INTELIGENCIA ARTIFICIAL
+
+Developed by:
+- ***Jhon Hader Fernández***
+- ***Diego Fernando Díaz***
+- ***Oscar Geovanny Baracaldo***
+
+---
+---
+
 ### *ADULTS INCOMES*  
 
 En base a los requerimientos del problema, en este caso, predecir si una persona tiene ingresos mayores o menores a $50.000 USD, se plantean las siguientes preguntas con el fin de otorgar solución al mismo.
@@ -97,6 +106,8 @@ En en desarollo del código, se realizan la precisión media de los dos modelos 
 
 
 ### COMPARACIONES 
+
+Las matrices de confusión nos muestran cuántos datos fueron clasificados correctamente y cuántos no. De esta forma podemos saber solo con la matriz de confusión cuál de los métodos funcionó mejor (tuvo menos errores de clasificación). Empecemos por examinar matriz del método `SVM`, esta clasificó correctamente 10595 para la clase `<=50K` y se equivocó en 765, comparando esta con el método de `Perceptron` que obtuvo 8953 clasificaciones correctas y 2407 clasificaciones incorrectas, es natural pensar que el método `SVM` clasifica (para esta clase) mucho mejor que el método de `Perceptron`. Se puede hacer el mismo análisis para con el método de discriminante de `Fischer`, mas es más efectivo tener una medida porcentual que nos diga qué tan bueno fue un clasificador. Para esto se utiliza el método `Score` de cada método y, como se puede ver en la tabla, efectivamente el método SVM clasifica mejor que los otros dos.
 
 |    Resultados SVM    | 
 |:--------------------:| 
