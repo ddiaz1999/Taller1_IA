@@ -34,7 +34,6 @@
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import plot_confusion_matrix
 from sklearn import svm
-from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
