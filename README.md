@@ -3,7 +3,7 @@
 
 En base a los requerimientos del problema, en este caso, predecir si una persona tiene ingresos mayores o menores a $50.000 USD, se plantean las siguientes preguntas con el fin de otorgar solución al mismo.
 
-#####1. ¿Qué contienen los datos?
+#### 1. ¿Qué contienen los datos?
 
 Se analiza el conjunto de datos, en este se evidencian tres archivos principales
 
@@ -58,7 +58,7 @@ Se puede observar que el conjunto de datos de entrenamiento y de prueba presenta
 |                |        
 
 
-##Procesamiento de datos
+## PROCESAMIENTO DE DATOS
 
 Para las caracteristicas de tipo categóricas (exceptuando `'Sex'`) se realizó una codificación ***One Hot*** la cual aumenta la dimensionalidad del problema, pues si una caracteristica tiene 3 opciones, esta caracteristica será reemplazada por 3 nuevas caracteristicas, cada una correspondiente a las opciones que tenía la caracteristica inicial.
 
@@ -74,18 +74,18 @@ Al observar que en el conjunto de entrenamiento, sólo una persona tenía como `
 
 Lo anterior se debe a qué los dos conjuntos de datos deben tener la misma cantidad de caracteristicas.  
 
-2.¿Qué métodos se proponen utilizar y por qué?
+#### 2.¿Qué métodos se proponen utilizar y por qué?
 
 El primer modelo utilizado fue, Máquinas de Vector Soporte ya que rara vez se encuentran casos en los que las clases sean perfectas y linealmente separable, se prefiere implementar un clasificador que se base en un hiperplano que, aunque no separe perfectamente las dos clases, tenga una mayor capacidad de prediccion presentando menos problemas de overfitting. Pues, en vez de buscar que todos los datos de la clase se encuentren en el lado correcto del hiperplano, da la posibilidad que ciertas muestras estén en el lado incorrecto del hiperplano. Luego, el hiperplano depende únicamente de una pequeña proporción de muestras o vectores soporte, perfilandose a ser mas robusto frente a muestras muy lejanas.
 
 Como segundo módelo, se tomó el Perceptron, pues este siempre encuentra un hiperplano de separación, siempre y cuando los datos sean linealmente separables. Siendo bastante simple e ideal para clasificaciones binarias. Este se puede entrenar en tiempo real haciendo uso de la actualización del modelo con una única iteración con los datos que se incluyan como argumentos.
 
-##Desarrollo Métodos
+## DESARROLLO DE MÉTODOS
 
 
 En el codigo adjunto de Python se ve representada la implementación de los modelos, de acuerdo a los parametros especificados en el enunciado del taller.
 
-###Resultados
+### RESULTADOS
 
 En en desarollo del código, se realizan la precisión media de los dos modelos especificados, obteniendo como resultado:
 
@@ -96,12 +96,12 @@ En en desarollo del código, se realizan la precisión media de los dos modelos 
 |  Perceptron  |      0.795      |
 
 
-### comparaciones
+### COMPARACIONES
 
 Diego, insertar imágenes aquí
 
 
-###Conclusiones
+### CONCLUSIONES
 
 La forma que describe el perceptron es bastante sencilla, de tal manera que permite una muy buena flexibilidad al momento de la actualización de los pesos, permitiendo que sea facil de adaptar al problema.
 
